@@ -1,0 +1,55 @@
+// out: ../dist/stepper-input.css
+
+.stepper-input {
+  &\:\:wrapper {
+    display: inline-block;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  &\:\:input::-webkit-outer-spin-button,
+  &\:\:input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &\:\:input { -moz-appearance:textfield; }
+
+  &\:\:input {
+    box-sizing: border-box;
+    padding-left: 2.5em !important;
+    padding-right: 2.5em !important;
+    position: relative;
+    vertical-align: middle;
+    z-index: 0;
+  }
+
+  &\:\:increment,
+  &\:\:decrement {
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    bottom: 0;
+    cursor: default;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 2.5em;
+    z-index: 1;
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+
+  &\:\:decrement {
+    left: 0; &::before { content: "-" }
+  }
+
+  &\:\:increment {
+    right: 0; &::before { content: "+" }
+  }
+}

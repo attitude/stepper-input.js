@@ -4,9 +4,9 @@
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
-    "minify": "terser dist/stepper-input.js.js --compress --mangle --source-map --output dist/init-es6.min.js",
-    "build": "babel src/ -o dist/stepper-input.js.js",
-    "start": "babel src/ -o dist/stepper-input.js.js --watch"
+    "minify": "terser dist/stepper-input.js --compress --mangle --source-map --output dist/stepper-input.min.js",
+    "build": "babel src/ -o dist/stepper-input.js",
+    "start": "babel src/ -o dist/stepper-input.js --watch & php -S localhost:8888"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",

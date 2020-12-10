@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stepper Input</title>
+<link href="dist/stepper-input.css" rel="stylesheet">
+<style>
+/* THIS PAGE STYLES >>> */
+html, body { min-height: 100vh }
+html { box-sizing: border-box }
+*, *::after, *::before { box-sizing: inherit }
+
+*:first-child { margin-top: 0}
+*:last-child { margin-bottom: 0}
+
+body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  justify-content: center;
+}
+
+h1 { font-size: 3em; }
+
+h1, h2, h3, h4, h5, h6, p { text-align: center }
+
+p { font-weight: bold; }
+
+label { margin: .5em 0 }
+
+article {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  padding-bottom: 2em;
+  padding-top: 2em;
+}
+
+.github-link {
+  background-color: black;
+  border-radius: 0.5em;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  transition: background ease-in-out .6s;
+}
+.github-link::after { content: "→" }
+.github-link:hover { background-color: blue; }
+
+ul {
+  position: relative;
+  list-style: none;
+}
+
+li::before {
+  content: "✓";
+  color: mediumseagreen;
+  left: 1em;
+  position: absolute;
+}
+/* <<< THIS PAGE STYLES */
+
+/* Here comes your fancy input styling */
+/* full width input: */
+label {
+  display: flex;
+  flex-direction: column;
+}
+label .stepper-input\:\:wrapper {
+  display: flex;
+  flex-direction: row;
+}
+label .stepper-input\:\:wrapper,
+label input { flex: 1 1 100% }
+
+/* Inputs: */
+input {
+  font-size: 1em;
+  margin: 0;
+}
+
+/* Some unified input field styles: */
+textarea,
+input[type="text"],
+input[type="number"] {
+  border: 1px solid lightgrey;
+  border-radius: .5em;
+  padding: 0.75em;
+  text-align: center;
+}
+
+/* styling of the stepper elements: */
+.stepper-input\:\:increment,
+.stepper-input\:\:decrement {
+  font-weight: bold;
+}
+.stepper-input\:\:increment {
+  border-bottom-right-radius: .5em;
+  border-top-right-radius: .5em;
+}
+.stepper-input\:\:decrement {
+  border-bottom-left-radius: .5em;
+  border-top-left-radius: .5em;
+}
+.stepper-input\:\:increment:hover,
+.stepper-input\:\:decrement:hover {
+  background-color: blue;
+  color: white
+}
+</style>
+</head>
+<body>
+  <article>
+    <h1>The stepper input</h1>
+    <p>Drop-in wrapper around the number type input</p>
+    <ul>
+      <li>No dependencies</li>
+      <li>Minimum styles to override</li>
+      <li>Style increment/decrement with CSS</li>
+      <li>Works with step, min, max attributes</li>
+      <li>Touch devices supported</li>
+      <li>Long press for fast value change</li>
+      <li>Same as keyboard behaviour</li>
+      <li>Triggers input & change events (open console)</li>
+      <li>Triggers keyup & keydown events (open console)</li>
+      <li>Fallback to browser defaults without Javascript</li>
+    </ul>
+
+    <label>
+      <code>&lt;input type="number" /&gt;</code><br>
+      <input type="number" />
+    </label>
+
+    <label>
+      <code>&lt;input type="number" min="10" /&gt;</code><br>
+      <input type="number" min="10" />
+    </label>
+
+    <label>
+      <code>&lt;input type="number" min="0" max /&gt;</code><br>
+      <input type="number" min="0" max />
+    </label>
+
+    <label>
+      <code>&lt;input type="number" max="10" /&gt;</code><br>
+      <input type="number" max="10" />
+    </label>
+
+    <label>
+      <code>&lt;input type="number" min="-10" max="10" /&gt;</code><br>
+      <input type="number" min="-10" max="10" />
+    </label>
+
+    <label>
+      <code>&lt;input type="number" min="-1" max="1" step="0.1" /&gt;</code><br>
+      <input type="number" min="-1" max="1" step="0.1" />
+    </label>
+
+    <label>
+      <code>&lt;input type="number" min="-10" max="-1" step="0.1" /&gt;</code><br>
+      <input type="number" min="-10" max="-1" step="0.1" />
+    </label>
+
+    <p>
+      <a class="github-link" href="http://github.com/attitude/stepper-input.js">Get it on GitHub</a>
+    </p>
+  </article>
+
+  <script async src="dist/stepper-input.js"></script>
+  <script>
+    function logEvent (event) { console.log(event.type, event) }
+
+    document.querySelectorAll('input').forEach(function (input) {
+      input.addEventListener('input', logEvent)
+      input.addEventListener('change', logEvent)
+      window.addEventListener('keydown', logEvent)
+      window.addEventListener('keyup', logEvent)
+    });
+  </script>
+</body>
+</html>

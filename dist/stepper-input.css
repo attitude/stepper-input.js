@@ -1,0 +1,53 @@
+.stepper-input\:\:wrapper {
+  display: inline-block;
+  will-change: transform;
+  transform: translateZ(0);
+}
+.stepper-input\:\:input::-webkit-outer-spin-button,
+.stepper-input\:\:input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.stepper-input\:\:input {
+  -moz-appearance: textfield;
+}
+.stepper-input\:\:input {
+  box-sizing: border-box;
+  padding-left: 2.5em !important;
+  padding-right: 2.5em !important;
+  position: relative;
+  vertical-align: middle;
+  z-index: 0;
+}
+.stepper-input\:\:increment,
+.stepper-input\:\:decrement {
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  bottom: 0;
+  cursor: default;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 2.5em;
+  z-index: 1;
+}
+.stepper-input\:\:increment:active,
+.stepper-input\:\:decrement:active {
+  opacity: 0.5;
+}
+.stepper-input\:\:decrement {
+  left: 0;
+}
+.stepper-input\:\:decrement::before {
+  content: "-";
+}
+.stepper-input\:\:increment {
+  right: 0;
+}
+.stepper-input\:\:increment::before {
+  content: "+";
+}
